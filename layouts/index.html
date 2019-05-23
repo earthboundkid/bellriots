@@ -5,12 +5,15 @@
       <h1 class="title">
         {{ .Title|markdownify }}
       </h1>
-      <h2 class="title">
-        <span class="year"></span> years,
-        <span class="day"></span> days,
-        <span class="hour"></span> hours,
-        <span class="minute"></span> minutes,
-        <span class="second"></span> seconds
+      <h2 class="title countdown">
+        <span class="year">? years</span>,
+        <span class="day">? days</span>,
+        <span class="hour">? hours</span>,
+        <span class="minute">? minutes</span>,
+        <span class="second">? seconds</span>
+      </h2>
+      <h2 class="title happened is-hidden">
+        It already happened, man.
       </h2>
     </div>
   </div>
