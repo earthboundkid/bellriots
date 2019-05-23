@@ -1,6 +1,12 @@
 @import 'bulma.sass';
 
+
 .is-riot {
     background-image: url("/img/riots.jpg");
     background-size: cover;
+    text-shadow: rebeccapurple 1px 1px 5px;
+}
+
+.is-danger.is-riot a {
+    color: $warning !important;
 }
