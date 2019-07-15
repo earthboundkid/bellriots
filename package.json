@@ -6,6 +6,7 @@
   "author": "Carl Johnson <me@carlmjohnson.net>",
   "license": "MIT",
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
     "autoprefixer": "^9.5.1",
     "bulma": "^0.7.5",
     "postcss-cli": "^6.1.2"
