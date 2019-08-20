@@ -5,6 +5,16 @@ const millisecondsInHour = millisecondsInMinute * 60;
 const millisecondsInDay = millisecondsInHour * 24;
 const millisecondsInYear = millisecondsInDay * 365;
 
+const updateInnerTexts = (el, obj) => {
+  for (let cls in obj) {
+    let text = obj[cls];
+    let nodes = Array.from(el.getElementsByClassName(cls));
+    nodes.forEach(node => {
+      node.innerText = text;
+    });
+  }
+};
+
 const calcTime = () => {
   let now = new Date();
   let milliseconds = riotDate - now;
@@ -35,11 +45,6 @@ const calcTime = () => {
   };
 };
 
-let yearEl = document.querySelector(".year");
-let dayEl = document.querySelector(".day");
-let hourEl = document.querySelector(".hour");
-let minuteEl = document.querySelector(".minute");
-let secondEl = document.querySelector(".second");
 let countdownEl = document.querySelector(".countdown");
 let happenedEl = document.querySelector(".happened");
 
@@ -48,11 +53,13 @@ const pluralize = (n, text) => `${n} ${text}${n === 1 ? "" : "s"}`;
 let interval = null;
 const render = () => {
   let { happened, years, days, hours, minutes, seconds } = calcTime();
-  yearEl.innerText = pluralize(years, "year");
-  hourEl.innerText = pluralize(hours, "hour");
-  dayEl.innerText = pluralize(days, "day");
-  minuteEl.innerText = pluralize(minutes, "minute");
-  secondEl.innerText = pluralize(seconds, "second");
+  updateInnerTexts(countdownEl, {
+    year: pluralize(years, "year"),
+    hour: pluralize(hours, "hour"),
+    day: pluralize(days, "day"),
+    minute: pluralize(minutes, "minute"),
+    second: pluralize(seconds, "second")
+  });
   if (happened) {
     window.clearInterval(interval);
     countdownEl.classList.toggle("is-hidden");
