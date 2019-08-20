@@ -60,10 +60,10 @@ const render = () => {
     minute: pluralize(minutes, "minute"),
     second: pluralize(seconds, "second")
   });
+  countdownEl.classList.toggle("is-hidden", happened);
+  happenedEl.classList.toggle("is-hidden", !happened);
   if (happened) {
     window.clearInterval(interval);
-    countdownEl.classList.toggle("is-hidden");
-    happenedEl.classList.toggle("is-hidden");
   }
 };
 
