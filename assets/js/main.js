@@ -6,9 +6,9 @@ const millisecondsInDay = millisecondsInHour * 24;
 const millisecondsInYear = millisecondsInDay * 365;
 
 const updateInnerTexts = (el, obj) => {
-  for (let cls in obj) {
-    let text = obj[cls];
-    let nodes = Array.from(el.getElementsByClassName(cls));
+  for (let attr in obj) {
+    let text = obj[attr];
+    let nodes = Array.from(el.querySelectorAll(`[data-${attr}]`));
     nodes.forEach(node => {
       node.innerText = text;
     });
