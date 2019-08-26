@@ -48,17 +48,22 @@ const calcTime = () => {
 let countdownEl = document.querySelector(".countdown");
 let happenedEl = document.querySelector(".happened");
 
-const pluralize = (n, text) => `${n} ${text}${n === 1 ? "" : "s"}`;
+const pluralize = (n, text) => text + (n === 1 ? "" : "s");
 
 let interval = null;
 const render = () => {
   let { happened, years, days, hours, minutes, seconds } = calcTime();
   updateInnerTexts(countdownEl, {
-    year: pluralize(years, "year"),
-    hour: pluralize(hours, "hour"),
-    day: pluralize(days, "day"),
-    minute: pluralize(minutes, "minute"),
-    second: pluralize(seconds, "second")
+    year: years,
+    years: pluralize(years, "year"),
+    hour: hours,
+    hours: pluralize(hours, "hour"),
+    day: days,
+    days: pluralize(days, "day"),
+    minute: minutes,
+    minutes: pluralize(minutes, "minute"),
+    second: seconds,
+    seconds: pluralize(seconds, "second")
   });
   countdownEl.classList.toggle("is-hidden", happened);
   happenedEl.classList.toggle("is-hidden", !happened);
